@@ -12,13 +12,8 @@
 
 def is_armstrong_number(number: int) -> bool:
     number_str = str(number)
-    # Calculate amstrong proof
-    amstrong_number = 0
-    for digit in number_str:
-        amstrong_number += int(digit) ** len(number_str)
-
-    return number == amstrong_number
+    return number == sum(int(digit) ** len(number_str) for digit in number_str)
 
 
 if __name__ == "__main__":
-    print(is_armstrong_number(154))
+    print(is_armstrong_number(153))
