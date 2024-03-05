@@ -12,8 +12,10 @@ def square(number: int) -> int:
     """
     if number < 1 or number > 64:
         raise ValueError("square must be between 1 and 64")
-    
-    return 2**(number - 1) * GRAINS_IN_FIRST_SQUARE
+    elif number == 1:
+        return 1
+    # return 2**(number - 1) * GRAINS_IN_FIRST_SQUARE
+    return 1 << (number - 1)
 
 def total() -> int:
     """The total number of grain on a chessboard
@@ -22,17 +24,12 @@ def total() -> int:
     """
     grain = 0
     for square_num in range(1, CHESSBOARD_SQUARES + 1):
-        print(grain)
         grain += square(square_num)
         
     return grain
 
 if __name__ == "__main__":
-    # print(square(2))
-    # print(square(4))
-    # print(total())
-
-    # print(2**64-1)
-
-    for exp in range(10):
-        print(1 << exp)
+    print(square(1))
+    print(square(2))
+    print(square(4))
+    print(total())
